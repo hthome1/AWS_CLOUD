@@ -20,6 +20,6 @@ region=us-east-1
 * Esperar o main rodar
 
 * Para os request:
- * POST = python endpoints.py POST NOME_TASK DESCRICAO_TASK
- * GET = python endpoints.py GET
- * DELTE = python endpoints.py DELETE
+    * POST = python endpoints.py POST NOME_TASK DESCRICAO_TASK
+    * GET = python endpoints.py GET
+    * DELTE = python endpoints.py DELETE
