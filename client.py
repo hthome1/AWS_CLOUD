@@ -91,7 +91,7 @@ class Client:
         waiter.wait(ImageIds=[self.image_id_copy])
         print("Imagem Criada \n")
         #opcao = input("Deseja apagar a instância(y/n)")
-        opcao = 'n'
+        opcao = 'y'
         if opcao == 'y':
             self.destroy_instance()
 
@@ -229,6 +229,7 @@ class Client:
 
 
     def destroy_target_group(self):
+        time.sleep(20)
         response = self.clientLB.delete_target_group(TargetGroupArn= self.TG_ARN)
         print("Target Group Destruido")
 
@@ -249,9 +250,6 @@ class Client:
         )
         self.listnerARN = resp_listner['Listeners'][0]['ListenerArn']
         print("listner criado \n")
-
-    def destroy_listner(self):
-        response = self.clientLB.delete_listener(ListenerArn= self.listnerARN)
         
     def terminate(self):
         if (self.regiao == 'us-east-1'):
@@ -260,7 +258,6 @@ class Client:
             self.destroy_LB()
             self.destroy_launch_template()
             self.destroy_ASG()
-            self.destroy_listner()
             self.destroy_target_group()
         else:
             self.destroy_instance()
