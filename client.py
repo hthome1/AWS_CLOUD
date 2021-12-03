@@ -253,7 +253,7 @@ class Client:
         
     def terminate(self):
         if (self.regiao == 'us-east-1'):
-            self.destroy_instance()
+            #self.destroy_instance()
             self.destroy_AMI()
             self.destroy_LB()
             self.destroy_launch_template()
